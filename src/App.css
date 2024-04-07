@@ -1,0 +1,128 @@
+::view-transition-group(*) {
+  animation-duration: 0.65s;
+  transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.title-background {
+  display: block;
+  height: 100%;
+  width: 100%;
+  filter: blur(5px) contrast(1.15);
+}
+
+.title-title {
+  position: absolute;
+  padding-right: 1ch;
+  top: 0%;
+  left: 50%;
+  font-size: 10rem;
+  font-weight: 800;
+  text-align: end;
+  color: transparent;
+
+  background-image: linear-gradient(
+    -45deg,
+    rgba(195, 79, 79, 0.6),
+    rgba(81, 35, 35, 0.01)
+  );
+  background-clip: text;
+  text-shadow: 20px -2px 1px rgba(0, 0, 0, 0.9), 0px 2px 12px rgba(0, 0, 0, 0.4),
+    0px 2px 12px rgba(116, 50, 50, 0.3);
+}
+
+.map-background {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  filter: grayscale(0.5);
+}
+#map-cancel-icon {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
+.menu-button {
+  font-size: 3em;
+  font-weight: 900;
+  text-shadow: 2px 2px wheat;
+  color: rgb(13, 13, 13);
+  padding: 0.5em 2em;
+  border: 10px ridge dimgray;
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px black;
+  outline: 4px solid black;
+  transition: all 0.2s linear;
+  &:hover {
+    border-color: rgb(120, 87, 4);
+    box-shadow: 60px -0px 50px 5px rgba(0, 0, 0, 0.6), -60px 0px 85px black;
+  }
+  background-image: url("/alt_red_swatch.png");
+  filter: brightness() hue-rotate(-20deg);
+}
+/*TODO: prefers-reduced-motion*/
+/*TODO: fix competing transforms*/
+#title-buttons .menu-button {
+  transform: translate(-2000px);
+  animation: title-button-entry 2s 1s ease-out forwards;
+  &:active {
+    transform: translate(-10px) !important;
+  }
+}
+@keyframes title-button-entry {
+  100% {
+    transform: translate(0px);
+  }
+}
+#map-button {
+  position: absolute;
+  top: 40%;
+  margin-left: 1em;
+}
+#new-race-button {
+  position: absolute;
+  top: 60%;
+  margin-left: 1em;
+}
+#continue-race-button {
+  position: absolute;
+  top: 80%;
+  margin-left: 1em;
+}
+
+[data-testid]:not(#map-cancel-icon) {
+  color: black;
+}
+
+#point-1-flag {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+}
+#point-2-flag {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+}
+#point-3-flag {
+  position: absolute;
+  top: 30%;
+  left: 55%;
+}
+#point-4-flag {
+  position: absolute;
+  top: 40%;
+  left: 65%;
+}
+#point-5-flag {
+  position: absolute;
+  top: 40%;
+  left: 75%;
+}
+#point-6-flag {
+  position: absolute;
+  top: 50%;
+  left: 85%;
+}
