@@ -4,7 +4,6 @@ import MapScreen from "../components/MapScreen";
 
 export default function TitleScreen() {
   const [shown, setShown] = useState("");
-  console.log("v.001");
 
   return (
     <>
