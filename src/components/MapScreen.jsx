@@ -8,7 +8,7 @@ export default function MapScreen({ onClose }) {
     <div id="map-screen">
       <img
         className="map-background"
-        src="/Australian_Vegetation.webp"
+        src="./Australian_Vegetation.webp"
         alt="a map of Australia"
         onClick={handleClick}
       />

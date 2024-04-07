@@ -4,12 +4,13 @@ import MapScreen from "../components/MapScreen";
 
 export default function TitleScreen() {
   const [shown, setShown] = useState("");
+  console.log("v.001");
 
   return (
     <>
       <img
         className="title-background"
-        src="/Racing_Camel_by_fullyreclined.jpg"
+        src="./Racing_Camel_by_fullyreclined.jpg"
         alt="a camel and rider"
       />
       <span className="title-title">Camels Across The Outback</span>
