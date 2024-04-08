@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Camel from "../classes/camel";
 import CamelCard from "./CamelCard";
 import MenuButton from "./MenuButton";
+import { playCamelSoundAtRandom } from "../sound/music";
 
 export default function CamelSelector({ onClose, chooseCamel }) {
   const camelChoices = [];
@@ -22,6 +23,7 @@ export default function CamelSelector({ onClose, chooseCamel }) {
     return () => window.removeEventListener("keydown", handleClose);
   }, []);
 
+  playCamelSoundAtRandom();
   return (
     <>
       <span id="cyo-camel">Choose your Camel</span>
@@ -29,7 +31,13 @@ export default function CamelSelector({ onClose, chooseCamel }) {
         return (
           <div className="camel-choices" key={camel.id}>
             <CamelCard camel={camel} />
-            <MenuButton content={"Choose"} onClick={() => chooseCamel(camel)} />
+            <MenuButton
+              content={"Choose"}
+              onClick={() => {
+                chooseCamel(camel);
+                playCamelSoundAtRandom();
+              }}
+            />
           </div>
         );
       })}
