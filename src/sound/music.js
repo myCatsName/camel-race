@@ -17,13 +17,14 @@ import camelMP3 from "../sound/annakstedt_camel14k.mp3"
 })
  const bushWalkSounds = new Howl({
     src: [bushWalkMP3],
-    volume:1.45,
+    volume:1.35,
     rate:0.8,
     loop:true
 })
 
 const camelSound = new Howl({
 src: [camelMP3],
+volume: .7,
 sprite: {
     grunt1: [0,4000],
     grunt2: [6000,6000]
@@ -34,6 +35,11 @@ export function playMainTheme(){
     acousticFast.play();
     acousticSlow.play();
     bushWalkSounds.play();
+}
+export function stopMainTheme(){
+    acousticFast.stop();
+    acousticSlow.stop();
+    bushWalkSounds.stop();
 }
 
 export function playCamelSoundAtRandom(){

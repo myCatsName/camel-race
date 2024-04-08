@@ -5,6 +5,7 @@ import TitleScreen from "./scene/Title";
 import { playMainTheme } from "./sound/music";
 import Race from "./Race";
 import MapScreen from "./components/MapScreen";
+import YouTubeScreen from "./components/YouTubeScreen";
 
 console.log("v.022");
 playMainTheme();
@@ -29,10 +30,12 @@ function App() {
         className="title-background"
         src="./Racing_Camel_by_fullyreclined.jpg"
         alt="a camel and rider"
+        draggable="false"
       />
       {shown === "titleScreen" && <TitleScreen changeView={changeView} />}
       {shown === "mapScreen" && <MapScreen onClose={returnToTitle} />}
       {shown === "raceScreen" && <Race onClose={returnToTitle} />}
+      {shown === "videoIFrame" && <YouTubeScreen onClose={returnToTitle} />}
     </>
   );
 }
