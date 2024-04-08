@@ -1,8 +1,17 @@
+import { useEffect } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import FlagCircleIcon from "@mui/icons-material/FlagCircle";
 
 export default function MapScreen({ onClose }) {
-  function handleClick() {}
+  useEffect(() => {
+    function handleClose(e) {
+      if (e.code === "Escape") {
+        onClose();
+      }
+    }
+    window.addEventListener("keydown", handleClose);
+    return () => window.removeEventListener("keydown", handleClose);
+  }, []);
 
   return (
     <div id="map-screen">
@@ -10,7 +19,6 @@ export default function MapScreen({ onClose }) {
         className="map-background"
         src="./Australian_Vegetation.webp"
         alt="a map of Australia"
-        onClick={handleClick}
       />
       <CancelIcon
         id="map-cancel-icon"

@@ -1,20 +1,40 @@
 import "./App.css";
-import Camel from "./classes/camel";
+import { useState } from "react";
 import TitleScreen from "./scene/Title";
 
 import { playMainTheme } from "./sound/music";
+import Race from "./Race";
+import MapScreen from "./components/MapScreen";
 
-const yak = new Camel();
-const cow = new Camel("red", "gerta");
-const carrot = new Camel();
-
-console.log(yak, cow, carrot);
-
-console.log("v.002");
+console.log("v.022");
 playMainTheme();
 
 function App() {
-  return <TitleScreen />;
+  const [shown, setShown] = useState("titleScreen");
+
+  function returnToTitle() {
+    document.startViewTransition(() => {
+      setShown("titleScreen");
+    });
+  }
+  function changeView(destination) {
+    document.startViewTransition(() => {
+      setShown(destination);
+    });
+  }
+
+  return (
+    <>
+      <img
+        className="title-background"
+        src="./Racing_Camel_by_fullyreclined.jpg"
+        alt="a camel and rider"
+      />
+      {shown === "titleScreen" && <TitleScreen changeView={changeView} />}
+      {shown === "mapScreen" && <MapScreen onClose={returnToTitle} />}
+      {shown === "raceScreen" && <Race onClose={returnToTitle} />}
+    </>
+  );
 }
 
 export default App;
