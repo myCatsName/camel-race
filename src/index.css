@@ -17,6 +17,11 @@ body {
   min-width: 320px;
   height: 100vh;
   display: flex;
+  user-select: none;
+}
+
+p {
+  word-wrap: break-word;
 }
 
 li {
@@ -26,7 +31,7 @@ li {
 button {
   cursor: pointer;
 }
-button:focus,
+
 button:focus-visible {
   outline-color: wheat;
 }

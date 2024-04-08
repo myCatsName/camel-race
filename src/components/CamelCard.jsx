@@ -12,7 +12,7 @@ export default function CamelCard({ camel }) {
 
   return (
     <div className="camel-card">
-      <img src={portrait} />
+      <img src={portrait} draggable="false" alt="a generic camel" />
       <ul>
         <li className="camel-name">{camel.name}</li>
         <div className="camel-stats">
