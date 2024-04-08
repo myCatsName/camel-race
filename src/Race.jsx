@@ -1,8 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import CamelSelector from "./components/CamelSelector";
+import Interview from "./scene/Interview";
+import { GameProvider } from "./context/GameContext";
 
 export default function Race({ onClose }) {
   const chosenCamel = useRef(null);
+  const [scene, setScene] = useState("CamelSelector");
 
   useEffect(() => {
     const backgroundImage = document.querySelector(".title-background");
@@ -12,12 +15,19 @@ export default function Race({ onClose }) {
 
   function chooseCamel(choice) {
     chosenCamel.current = choice;
-    onClose();
+    setScene("Interview");
   }
 
   return (
-    <div id="race-game">
-      <CamelSelector onClose={onClose} chooseCamel={chooseCamel} />
-    </div>
+    <GameProvider>
+      <div id="race-game">
+        {scene === "CamelSelector" && (
+          <CamelSelector onClose={onClose} chooseCamel={chooseCamel} />
+        )}
+        {scene === "Interview" && (
+          <Interview chosenCamel={chosenCamel.current} />
+        )}
+      </div>
+    </GameProvider>
   );
 }
