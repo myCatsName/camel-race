@@ -20,7 +20,13 @@ export default function TitleScreen({ changeView }) {
             changeView("raceScreen");
           }}
         />
-        <MenuButton id={"continue-race-button"} content={"Continue Race"} />
+        <MenuButton
+          id={"youtube-button"}
+          content={"Watch Video"}
+          onClick={() => {
+            changeView("videoIFrame");
+          }}
+        />
       </div>
     </>
   );
