@@ -1,39 +1,33 @@
-import { useState } from "react";
 import MenuButton from "../components/MenuButton";
-import MapScreen from "../components/MapScreen";
 
-export default function TitleScreen() {
-  const [shown, setShown] = useState("");
-  console.log("v.001");
-
+export default function TitleScreen({ changeView }) {
   return (
     <>
-      <img
-        className="title-background"
-        src="./Racing_Camel_by_fullyreclined.jpg"
-        alt="a camel and rider"
-      />
       <span className="title-title">Camels Across The Outback</span>
+
       <div id="title-buttons">
         <MenuButton
           id={"map-button"}
           content={"Map"}
           onClick={() => {
-            document.startViewTransition(() => setShown("mapScreen"));
+            changeView("mapScreen");
           }}
         />
-        <MenuButton id={"new-race-button"} content={"New Race"} />
-        <MenuButton id={"continue-race-button"} content={"Continue Race"} />
+        <MenuButton
+          id={"new-race-button"}
+          content={"New Race"}
+          onClick={() => {
+            changeView("raceScreen");
+          }}
+        />
+        <MenuButton
+          id={"youtube-button"}
+          content={"Watch Video"}
+          onClick={() => {
+            changeView("videoIFrame");
+          }}
+        />
       </div>
-      {shown === "mapScreen" && (
-        <MapScreen
-          onClose={() => {
-            document.startViewTransition(() => {
-              setShown(null);
-            });
-          }}
-        />
-      )}
     </>
   );
 }
