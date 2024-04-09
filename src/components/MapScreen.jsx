@@ -13,6 +13,12 @@ export default function MapScreen({ onClose }) {
     return () => window.removeEventListener("keydown", handleClose);
   }, []);
 
+  const wikiWinnerDialog = `In 1988 Gordon O'Connell won, taking 20 days in total to complete, covering 168 km every 24 hours as the average. (This includes meals, sleeping and animal feeding).
+
+O'Connell won The Great Australian Camel race approximately 34 hours ahead of his nearest competitor. In addition, Gordon won the first four of the six legs, even when he was hospitalised with kidney failure on the second leg going into Boulia.
+
+The army was the team organising the legs and were there for the safety of all competitors along with competing themselves. They were well equipped for the event with hundreds of support personnel and vehicles.`;
+
   return (
     <div id="map-screen">
       <img
@@ -20,6 +26,7 @@ export default function MapScreen({ onClose }) {
         src="./Australian_Vegetation.webp"
         alt="a map of Australia"
       />
+      <p id="map-text">{wikiWinnerDialog}</p>
       <CancelIcon
         id="map-cancel-icon"
         sx={{ fontSize: 80 }}
